@@ -1,6 +1,7 @@
-## A simple login system using Python & FastAPI
+## A simple login system using Python, MongoDB and FastAPI
 
 ### Dependencies:
+* [Python3]
 * [FastAPI]
 * [MongoDB]
 
@@ -29,6 +30,7 @@ windows: `python -m venv venv`
 [FastAPI]: <https://fastapi.tiangolo.com>
 [MongoDB]: <https://mongodb.com/try/download/community>
 [MongoDB for VS Code extension]: <https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode>
+[Python3]: <https://www.python.org/downloads/release/python-3100/>
 
 
 
