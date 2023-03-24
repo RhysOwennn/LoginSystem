@@ -1,6 +1,10 @@
-# LoginSystem
+# Angular Client For Login System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+## Getting started
+
+`npm install`
+
+`npm start`
 
 ## Development server
 
@@ -8,7 +12,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate component component-name` to generate a new component.
 
 ## Build
 
