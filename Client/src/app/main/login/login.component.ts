@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +13,11 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    public fb: FormBuilder
+    private _api : ApiService, 
+    private _auth: AuthService, 
+    private router: Router, 
+    public fb: FormBuilder 
+    
   ) {
     this.form = this.fb.group({
       username: ['', Validators.required],
@@ -21,8 +28,17 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login() {
-    let b = this.form.value;
-    console.log(b);
-  }
+  login() { 
+    let b = this.form.value 
+    console.log(b) 
+    this._api.postTypeRequest('login', b).subscribe((res: any) => {   // need to figure out types here
+      console.log(res) 
+      if(res.access_token){ 
+        this._auth.setDataInLocalStorage('token', res.access_token) 
+        this.router.navigate(['profile']) 
+      } 
+    }, (err: any) => { 
+      console.log(err) 
+    }); 
+  } 
 }

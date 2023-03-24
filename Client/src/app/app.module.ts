@@ -7,6 +7,8 @@ import { LoginComponent } from './main/login/login.component';
 import { ProfileComponent } from './main/profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './services/interceptor-service.service';
 
 
 
@@ -21,9 +23,14 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
 
   ],
-  providers: [],
+  providers: [  { 
+    provide: HTTP_INTERCEPTORS, 
+    useClass: InterceptorService, 
+    multi: true 
+  } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
