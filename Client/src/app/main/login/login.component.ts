@@ -29,9 +29,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() { 
-    let b = this.form.value 
-    console.log(b) 
-    this._api.postTypeRequest('login', b).subscribe((res: any) => {   // need to figure out types here
+    let formInformation = this.form.value 
+    console.log(formInformation) 
+    this._api.postTypeRequest('login', formInformation).subscribe((res: any) => {   // need to figure out types here
       console.log(res) 
       if(res.access_token){ 
         this._auth.setDataInLocalStorage('token', res.access_token) 
